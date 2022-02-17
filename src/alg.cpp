@@ -75,7 +75,7 @@ uint64_t sumPrime(uint64_t hbound) {
         }
         i++;
     }
-    int sum = 0;
+    uint64_t sum = 0;
     for (int i = 0; i < hbound; i++) {
         if (mass[i] != 0) {
             sum += mass[i];
