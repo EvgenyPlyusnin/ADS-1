@@ -57,28 +57,10 @@ uint64_t nextPrime(uint64_t value) {
 }
 
 uint64_t sumPrime(uint64_t hbound) {
-    int *mass = new int[hbound];
-    for (int i = 1; i < hbound; i++) {
-        mass[i] = i;
-        if (i == 1) {
-            mass[i] = 0;
-        }
-    }
-    int i = 1;
-    while (i <= hbound) {
-        if (mass[i] != 0) {
-            int j = i * 2;
-            while (j <= hbound) {
-                mass[j] = 0;
-                j += i;
-            }
-        }
-        i++;
-    }
     uint64_t sum = 0;
-    for (int i = 0; i < hbound; i++) {
-        if (mass[i] != 0) {
-            sum += mass[i];
+    for (int i = 2; i < hbound; i++) {
+        if (checkPrime(i) == true) {
+            sum += i;
         }
     }
     return sum;
